@@ -1,0 +1,111 @@
+.env
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ==============================
+# Environment / Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+# ==============================
+# IDEs / Editors
+# ==============================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==============================
+# Operating System
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Testing / Coverage
+# ==============================
+
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+logs/
+
+# ==============================
+# Database files
+# ==============================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ==============================
+# CCTV / AI generated files
+# ==============================
+
+screenshots/
+evidence/
+recordings/
+videos/
+captures/
+
+# YOLO outputs
+runs/
+runs/detect/
+runs/track/
+
+# ==============================
+# AI model files
+# ==============================
+
+*.pt
+*.pth
+*.onnx
+*.weights
+
+# ==============================
+# Temporary files
+# ==============================
+
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ==============================
+# Build files
+# ==============================
+
+build/
+dist/
+*.egg-info/
+
+# ==============================
+# Jupyter
+# ==============================
+
+.ipynb_checkpoints/
