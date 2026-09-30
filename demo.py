@@ -11,7 +11,7 @@ def main():
         confidence=0.96,
         timestamp=datetime.now().isoformat(timespec="seconds"),
         severity="CRITICAL",
-        screenshot_path=None,
+       screenshot_path="screenshots/test_intrusion.jpg",
         message="Standalone FISHER Alert Layer demo."
     )
 
