@@ -1,0 +1,454 @@
+
+
+.cctv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+  width: 100%;
+}
+
+.cctv-feed {
+  overflow: hidden;
+  border: 1px solid #1c2632;
+  border-radius: 10px;
+  background: #090d13;
+  min-width: 0;
+  width: 100%;
+}
+
+.cctv-header {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #1c2632;
+}
+
+.cctv-header h3 {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.camera-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.camera-status.online {
+  color: #8ba895;
+}
+
+.camera-status.offline {
+  color: #777f89;
+}
+
+.cctv-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 210px;
+  position: relative;
+  border: 0;
+  outline: none;
+  padding: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    #080b10;
+  background-size: 32px 32px;
+  color: inherit;
+}
+
+.cctv-screen:hover:not(:disabled) {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    #0a0e14;
+  background-size: 32px 32px;
+}
+
+.cctv-screen:disabled {
+  cursor: not-allowed;
+}
+
+.camera-placeholder {
+  width: 100%;
+  min-width: 0;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #687586;
+}
+
+.camera-icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 12px;
+  border: 1px solid #263442;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #718096;
+  background: #10161e;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.camera-placeholder strong {
+  max-width: 100%;
+  color: #a5afbb;
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.camera-placeholder span {
+  margin-top: 5px;
+  color: #5f6b7a;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.camera-placeholder small {
+  display: block;
+  margin-top: 10px;
+  color: #566372;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  overflow-wrap: anywhere;
+}
+
+.camera-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #667384;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+.camera-overlay span {
+  max-width: 48%;
+  overflow-wrap: anywhere;
+}
+
+.cctv-controls {
+  min-height: 42px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #1c2632;
+  background: #0b1017;
+}
+
+.cctv-control {
+  border: 1px solid #253140;
+  border-radius: 5px;
+  padding: 6px 10px;
+  background: #111923;
+  color: #8f9baa;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.cctv-control:hover {
+  background: #17212d;
+  color: #d0d7df;
+}
+
+.cctv-location {
+  color: #596676;
+  font-size: 9px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.cctv-feed.expanded {
+  grid-column: span 2;
+}
+
+.cctv-feed.expanded .cctv-screen {
+  min-height: 360px;
+}
+
+@media (max-width: 900px) {
+  .cctv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cctv-feed.expanded {
+    grid-column: span 1;
+  }
+
+  .cctv-feed.expanded .cctv-screen {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .cctv-header {
+    align-items: flex-start;
+  }
+
+  .camera-status {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .cctv-grid {
+    gap: 10px;
+  }
+
+  .cctv-screen {
+    min-height: 190px;
+  }
+
+  .cctv-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cctv-location {
+    text-align: left;
+  }
+}
+
+.cctv-control {
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+.cctv-control:hover {
+  background: #16231b;
+  border-color: #078930;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(7, 137, 48, 0.16);
+}
+html.light-mode .cctv-feed {
+  background: #ffffff;
+  border-color: #d3ded7;
+  box-shadow: 0 7px 22px rgba(30, 55, 40, 0.05);
+}
+html.light-mode .cctv-header {
+  background: #ffffff;
+  border-bottom-color: #dfe7e2;
+}
+html.light-mode .cctv-header h3 {
+  color: #172019;
+}
+html.light-mode .camera-status.online {
+  color: #078930;
+}
+html.light-mode .camera-status.offline {
+  color: #8a6f00;
+}
+html.light-mode .cctv-screen {
+  background:
+    linear-gradient(rgba(42, 78, 57, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 78, 57, 0.045) 1px, transparent 1px),
+    #eef3f0;
+  color: #172019;
+}
+html.light-mode .cctv-screen:hover:not(:disabled) {
+  background:
+    linear-gradient(rgba(7, 137, 48, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 137, 48, 0.065) 1px, transparent 1px),
+    #e8f0eb;
+}
+html.light-mode .camera-placeholder {
+  color: #53675d;
+}
+html.light-mode .camera-placeholder strong {
+  color: #172019;
+}
+html.light-mode .camera-placeholder span {
+  color: #52685c;
+}
+html.light-mode .camera-placeholder small {
+  color: #66786e;
+}
+html.light-mode .camera-icon {
+  background: #ffffff;
+  border-color: #c9d8ce;
+  color: #078930;
+  box-shadow: 0 6px 18px rgba(30, 55, 40, 0.06);
+}
+html.light-mode .camera-overlay {
+  color: #3e594b;
+}
+html.light-mode .cctv-controls {
+  background: #ffffff;
+  border-top-color: #dfe7e2;
+}
+html.light-mode .cctv-control {
+  background: #f4f8f5;
+  border-color: #c4d6ca;
+  color: #31503e;
+}
+html.light-mode .cctv-control:hover {
+  background: #eef7f1;
+  border-color: #078930;
+  color: #078930;
+  box-shadow: 0 6px 15px rgba(7, 137, 48, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cctv-control {
+    transition: none !important;
+  }
+}
+
+.camera-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 11px;
+  border: 1px solid #293744;
+  border-radius: 12px;
+  background: #111a23;
+  color: #73879a;
+}
+
+.camera-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.camera-icon.offline {
+  color: #6e6870;
+  opacity: 0.7;
+}
+
+.camera-location {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+}
+
+.camera-location svg {
+  width: 11px;
+  height: 11px;
+}
+
+.cctv-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cctv-control svg {
+  width: 12px;
+  height: 12px;
+}
+
+@media (max-width: 700px) {
+
+  .cctv-header h3 {
+    font-size: 18px;
+  }
+
+  .camera-status, .cctv-location {
+    font-size: 12px;
+  }
+
+  .camera-placeholder strong {
+    font-size: 15px;
+  }
+
+  .camera-placeholder span {
+    font-size: 13px;
+  }
+
+  .camera-placeholder small {
+    font-size: 11px;
+  }
+}
+
+.cctv-feed {
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.cctv-feed:hover {
+  transform: translateY(-2px);
+}
+
+.cctv-feed:has(.camera-status.online):hover {
+  border-color: #078930 !important;
+  box-shadow: 0 10px 24px rgba(7, 137, 48, 0.12);
+}
+
+.cctv-feed:has(.camera-status.offline):hover {
+  border-color: #da121a !important;
+  box-shadow: 0 10px 24px rgba(218, 18, 26, 0.12);
+}
+
+.camera-status.online {
+  color: #078930 !important;
+}
+
+.camera-status.offline {
+  color: #da121a !important;
+}
+
+html.light-mode .camera-status.online {
+  color: #078930 !important;
+}
+
+html.light-mode .camera-status.offline {
+  color: #a80d15 !important;
+}
+
+.cctv-feed {
+  border-radius: var(--ui-radius-small);
+}
+
+.cctv-control {
+  min-height: 36px;
+}
+
+.cctv-control:focus-visible {
+  outline: 2px solid var(--ui-focus);
+  outline-offset: 3px;
+}
+
+html.light-mode .cctv-feed {
+  box-shadow: 0 5px 16px rgba(28, 53, 39, 0.04);
+}
+
+html.light-mode .cctv-feed:hover {
+  box-shadow: var(--ui-shadow-light);
+}
