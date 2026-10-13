@@ -19,8 +19,3 @@ data = jpg.tobytes()
 print("Conversion to bytes successful")
 print("Data type:", type(data))
 print("Size:", len(data), "bytes")
-
-
-
-
-
