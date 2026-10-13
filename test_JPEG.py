@@ -13,14 +13,14 @@ if ok:
     print("JPEG encoding successful")
 else:
     print("JPEG encoding failed")
-    
+
 # changing the encoded JPEG into bytes
 data = jpg.tobytes()
 print("Conversion to bytes successful")
 print("Data type:", type(data))
 print("Size:", len(data), "bytes")
 
-    
-    
-    
-  
+
+
+
+

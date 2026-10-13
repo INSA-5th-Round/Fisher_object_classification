@@ -1,7 +1,7 @@
 """create fisher cctv database
 
 Revision ID: 5ae9b44811cc
-Revises: 
+Revises:
 Create Date: 2026-09-11 13:01:23.903026
 
 """

@@ -14,7 +14,7 @@ def receive_image():
     if image is None:
         print("No image received")
         return "No image received", 400
-    
+
     filename = f"frame_{time.time_ns()}.jpg"
 
     image.save(os.path.join("received_frames", filename))

@@ -1,9 +1,9 @@
 import argparse #Let the user give information when starting the program.takes instructions from the terminal
 import cv2 # main video/image tool
-import requests # Send frames to your AI/server 
+import requests # Send frames to your AI/server
 import time # Control timing and intervals
 import signal # Handle things like Ctrl+C safely
-import sys # Control/interact with Python itself 
+import sys # Control/interact with Python itself
 
 running = True
 
@@ -25,7 +25,7 @@ def parse_args():
     p.add_argument("--interval", type=float, default=0.2, help="Seconds between sends (default 0.2)")  #1 ÷ 0.2 = 5 frames/second how often to send a frame.
     p.add_argument("--resize", type=int, nargs=2, metavar=("W","H"), help="Resize frames to WIDTH HEIGHT before sending") #to change the frame size
     p.add_argument("--roi", type=int, nargs=4, metavar=("X","Y","W","H"), help="Crop ROI x y w h before sending") #Region of Interest To select only a specific part of the CCTV image.
-    p.add_argument("--show", action="store_true", help="Show preview window with framing") #show me a live preview 
+    p.add_argument("--show", action="store_true", help="Show preview window with framing") #show me a live preview
     p.add_argument("--auth", help="Optional Basic auth user:pass for detection server") #to provide a username and password for the detection server.
     return p.parse_args()
 

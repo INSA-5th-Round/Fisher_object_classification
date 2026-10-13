@@ -49,9 +49,9 @@ while True:
         print("End of video")
         break
     detections = detect_objects(frame)
-            
+
     print("Detections:", detections)
-    
+
 
     # -------------------------
     # ROI
@@ -117,10 +117,10 @@ while True:
 
     # Convert JPEG to bytes
     data = jpg.tobytes()
-    
-   
-    
-    
+
+
+
+
 
     # -------------------------
     # SEND TO SERVER
@@ -154,9 +154,9 @@ while True:
         print("Send error:", e)
 
     last_send = time.time()
-    
-    
-    
+
+
+
 
 
 # -----------------------------
