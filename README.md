@@ -469,3 +469,16 @@ An AI-powered CCTV platform combining:
 **Under Development**
 
 The system architecture is modular, allowing individual components to be developed, tested, and integrated progressively.
+
+## Consolidated branch entry points
+
+This branch combines alert integration, object detection and tracking, CCTV analytics, video processing, and the database layer.
+
+Install dependencies with `pip install -r requirements.txt` and copy `.env.example` to `.env`, then configure the services you intend to run.
+
+- Detection and alerts: `python object_detection.py`
+- CCTV analytics: `python main.py`; see [CCTV_ANALYTICS.md](CCTV_ANALYTICS.md).
+- Video processing: see [VIDEO_PROCESSING.md](VIDEO_PROCESSING.md).
+- Database API: `uvicorn app.main:app --reload`; configure `DATABASE_URL` and `SECRET_KEY`, then apply migrations with `alembic upgrade head`.
+
+The database files are restored from the database branch because they had been removed from main. These components retain their separate entry points.
