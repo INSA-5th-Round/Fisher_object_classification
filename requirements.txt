@@ -1,5 +1,15 @@
-
+requests==2.32.3
+python-dotenv==1.0.1
 ultralytics>=8.1.0
 opencv-python>=4.9.0
 numpy>=1.26.0
-
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+alembic
+pydantic
+pydantic-settings
+passlib[bcrypt]
+python-jose[cryptography]
+flask
