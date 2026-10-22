@@ -117,6 +117,7 @@ def root():
 
 
 @app.get("/health")
+@app.get("/api/health")
 def health():
     db_health = database.check_db_connection()
     tg_health = telegram_service.verify_credentials()

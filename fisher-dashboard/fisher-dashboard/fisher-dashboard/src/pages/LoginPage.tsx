@@ -7,12 +7,25 @@ interface LoginPageProps {
   onLoginSuccess: (user: User) => void;
 }
 
+const AUTHORIZED_ACCOUNTS = [
+  { username: "admin", email: "admin@fisher.cctv", role: "Administrator", defaultPass: "admin123" },
+  { username: "operator", email: "operator@fisher.cctv", role: "Operator", defaultPass: "operator123" },
+  { username: "supervisor", email: "supervisor@fisher.cctv", role: "Supervisor", defaultPass: "supervisor123" },
+];
+
 export function LoginPage({ onLoginSuccess }: LoginPageProps) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("admin");
+  const [email, setEmail] = useState("admin@fisher.cctv");
+  const [password, setPassword] = useState("admin123");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const selectAccount = (acc: typeof AUTHORIZED_ACCOUNTS[0]) => {
+    setUsername(acc.username);
+    setEmail(acc.email);
+    setPassword(acc.defaultPass);
+    setError(null);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,8 +45,14 @@ export function LoginPage({ onLoginSuccess }: LoginPageProps) {
         setError("Invalid credentials or server error.");
       }
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Authentication failed.";
-      setError(msg);
+      const rawMsg = err instanceof Error ? err.message : "Authentication failed.";
+      if (rawMsg.toLowerCase().includes("failed to fetch") || rawMsg.toLowerCase().includes("networkerror")) {
+        setError(
+          "Unable to connect to the backend server (127.0.0.1:8000). Please check that python server.py is running."
+        );
+      } else {
+        setError(rawMsg);
+      }
     } finally {
       setLoading(false);
     }
@@ -55,6 +74,36 @@ export function LoginPage({ onLoginSuccess }: LoginPageProps) {
           </p>
           <div className="login-auth-badge">
             Authorized Personnel Access Only
+          </div>
+        </div>
+
+        {/* Quick Account Selector */}
+        <div style={{ marginBottom: "16px" }}>
+          <div style={{ fontSize: "11px", color: "#94a3b8", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            Select Authorized Account:
+          </div>
+          <div style={{ display: "flex", gap: "6px" }}>
+            {AUTHORIZED_ACCOUNTS.map((acc) => (
+              <button
+                key={acc.username}
+                type="button"
+                onClick={() => selectAccount(acc)}
+                style={{
+                  flex: 1,
+                  padding: "6px 8px",
+                  borderRadius: "6px",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  border: username === acc.username ? "1px solid #1597e5" : "1px solid #334155",
+                  background: username === acc.username ? "rgba(21, 151, 229, 0.2)" : "#1e293b",
+                  color: username === acc.username ? "#38bdf8" : "#cbd5e1",
+                  transition: "all 0.15s ease",
+                }}
+              >
+                {acc.username}
+              </button>
+            ))}
           </div>
         </div>
 

@@ -56,6 +56,8 @@ class CameraStreamManager:
 
         # Detection persistence throttle
         self.last_detection_save_time = 0.0
+        self.last_detection_infer_time = 0.0
+        self.cached_tracks: Dict[int, Dict[str, Any]] = {}
         self.seen_track_cooldown: Dict[int, float] = {}
 
         self._generate_fallback_frame("INITIALIZING PC CAMERA...")
@@ -177,17 +179,37 @@ class CameraStreamManager:
                     _, raw_buffer = cv2.imencode(".jpg", raw_frame, [cv2.IMWRITE_JPEG_QUALITY, 80])
                     raw_bytes = raw_buffer.tobytes()
 
-                    # Process with YOLO detector if frame_and_detection is not overriding
+                    # Process with YOLO detector at ~5 FPS to prevent GIL/CPU starvation
                     annotated_frame = raw_frame.copy()
                     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
                     if self.detector:
-                        try:
-                            annotated_frame = self.detector.process_frame(annotated_frame, draw=True)
-                            tracks = self.detector.get_tracks()
-                            self._handle_detected_tracks(tracks, raw_frame, now_str)
-                        except Exception as e:
-                            logger.debug(f"Detector processing error: {e}")
+                        if (now - self.last_detection_infer_time) > 0.2:
+                            self.last_detection_infer_time = now
+                            try:
+                                self.detector.process_frame(raw_frame.copy(), draw=False)
+                                self.cached_tracks = self.detector.get_tracks()
+                                self._handle_detected_tracks(self.cached_tracks, raw_frame, now_str)
+                            except Exception as e:
+                                logger.debug(f"Detector processing error: {e}")
+
+                        # Draw cached tracks on the live feed
+                        for track_id, track in self.cached_tracks.items():
+                            bbox = track.get("bbox")
+                            if bbox:
+                                x1, y1, x2, y2 = bbox
+                                cname = track.get("class", "object")
+                                conf = track.get("confidence", 0.0)
+                                cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                                cv2.putText(
+                                    annotated_frame,
+                                    f"{cname} {conf:.2f}",
+                                    (x1, max(y1 - 10, 20)),
+                                    cv2.FONT_HERSHEY_SIMPLEX,
+                                    0.55,
+                                    (0, 255, 0),
+                                    2,
+                                )
 
                     # Header timestamp and camera tag
                     cv2.putText(
