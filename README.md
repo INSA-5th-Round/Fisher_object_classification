@@ -288,35 +288,46 @@ To ensure standard naming conventions, all legacy module names have been updated
 
 ---
 
-### Environment Variables (.env)
+### Environment Variables Configuration
 
-The backend configuration is managed via [`finals/.env`](file:///c:/Users/Lenovo/Desktop/ending/finals/.env):
+To protect sensitive keys, all `.env` files containing live credentials are kept local and excluded from version control. Configure your local environment using the provided templates:
 
-```env
-# Telegram Bot Integration
-BOT_TOKEN=8594220038:AAGxP029sL74xGvj0Z92d8F49tL88R39sJg
-CHAT_ID=5393180424
+1. **Backend Configuration** (`finals/.env`):
+   Create your local file from `finals/.env.example`:
+   ```powershell
+   cp finals/.env.example finals/.env
+   ```
+   Configure your parameters with placeholders:
+   ```env
+   # Telegram Bot Integration
+   BOT_TOKEN=your_telegram_bot_token_here
+   CHAT_ID=your_telegram_chat_id_here
 
-# MongoDB Atlas Cloud Database
-MONGODB_URI=mongodb+srv://user1:user1@cluster0.puvfgv6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-DB_NAME=fisher_cctv
+   # MongoDB Atlas Cloud Database
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.cnbvulh.mongodb.net/?retryWrites=true&w=majority
+   DB_NAME=fisher_cctv
 
-# Detection & Recording Settings
-INTRUSION_VIDEO_SECONDS=120
-AUTHORIZED_EMAILS=admin@fisher.cctv,operator@fisher.cctv,supervisor@fisher.cctv
+   # Detection & Recording Settings
+   INTRUSION_VIDEO_SECONDS=120
+   AUTHORIZED_EMAILS=admin@fisher.cctv,operator@fisher.cctv,supervisor@fisher.cctv
 
-# Server Endpoints
-BACKEND_HOST=0.0.0.0
-BACKEND_PORT=8000
-API_BASE_URL=http://127.0.0.1:8000
-```
+   # Server Endpoints
+   BACKEND_HOST=0.0.0.0
+   BACKEND_PORT=8000
+   API_BASE_URL=http://127.0.0.1:8000
+   API_DETECTIONS_URL=http://127.0.0.1:8000/api/detections
+   CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://127.0.0.1:3000
+   ```
 
-The frontend environment file is configured at [`fisher-dashboard/fisher-dashboard/fisher-dashboard/.env`](file:///c:/Users/Lenovo/Desktop/ending/fisher-dashboard/fisher-dashboard/fisher-dashboard/.env):
-
-```env
-VITE_API_BASE_URL=http://127.0.0.1:8000/api
-VITE_BACKEND_URL=http://127.0.0.1:8000
-```
+2. **Frontend Configuration** (`fisher-dashboard/fisher-dashboard/fisher-dashboard/.env`):
+   Create your local file from `.env.example`:
+   ```powershell
+   cp fisher-dashboard/fisher-dashboard/fisher-dashboard/.env.example fisher-dashboard/fisher-dashboard/fisher-dashboard/.env
+   ```
+   ```env
+   VITE_API_BASE_URL=/api
+   VITE_BACKEND_URL=http://127.0.0.1:8000
+   ```
 
 ---
 

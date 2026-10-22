@@ -5,12 +5,17 @@
 # 1. Real Credentials, Environment Files & Secrets (CRITICAL)
 .env
 .env.*
+.env.local
+.env.*.local
 *.env
-!*.env.example
-finals/.env
-finals/.env.*
-fisher-dashboard/**/.env
-fisher-dashboard/**/.env.*
+**/.env
+**/.env.*
+**/.env.local
+**/.env.*.local
+**/*.env
+!**/.env.example
+!**/.env.*.example
+!**/*.env.example
 
 # 2. Generated Intrusion Images, Videos, and Media (CRITICAL)
 output/
