@@ -1,0 +1,35 @@
+# Python Bytecode & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+dist/
+.venv/
+venv/
+ENV/
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+!*.env.example
+
+# Generated Intrusion Media & Videos (CRITICAL)
+output/alerts/*
+!output/alerts/.gitkeep
+output/intrusions/*
+!output/intrusions/.gitkeep
+*.mp4
+*.avi
+*.mkv
+video_animal.mp4
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
