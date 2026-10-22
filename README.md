@@ -12,19 +12,20 @@
 
 ---
 
-## Project Team & Engineering Contributions
+## Project Team & Assigned Roles
 
-This project was developed through collaborative engineering across dedicated modules and branches:
+The graduation project responsibilities are assigned by system layer:
 
-| Team Member | Engineering Focus | Responsibilities & Deliverables |
-| :--- | :--- | :--- |
-| **Hawlet Musbah** | **Backend & Frontend Integration, Video Frame Processing, and Project Coordination** | Architected unified system pipeline, resolved Windows single-owner camera concurrency, implemented dual-stream MJPEG routing, frame injection API, and led overall project coordination. |
-| **Iman Muhammednur** | **Dashboard Frontend** | Engineered the React 19 operational command center, responsive dark/light UI, authentication flow, live CCTV stream integration, and interactive incident workflows. |
-| **Sitota Getahun** | **Frame Analysis** | Developed geometric analysis, polygon perimeter calculations, bounding box intersection algorithms, and tracking state logic (`analysis.py`). |
-| **Bona Tolasa** | **Database Management** | Architected MongoDB Atlas schemas, database indexing, intrusion records, bcrypt authentication, data persistence, and safe history cleanup (`database.py`). |
-| **Natnaile Desalgn** | **AI Object Detection** | Implemented the Ultralytics YOLOv8n object detection engine, multi-object BoT-SORT tracker configuration, and bounding box labeling (`yolo_detector.py`). |
-| **Nuhamin Anbese** | **Telegram Alerts** | Built the automated Telegram incident escalation engine, non-blocking async queue worker, immediate Frame 1 & +3s Frame 2 capture, and 2-minute video dispatch (`alert_system.py`). |
+| Team member | Assigned layer(s) | Specific responsibilities |
+| --- | --- | --- |
+| **Hawlet Musbah (Hawlet)** | **2 — Video Processing** | OpenCV and FFmpeg video processing, frame extraction, and video enhancement. |
+| **Natnaile Desalgn (Nati)** | **3 — AI Detection; 4 — Tracking; 9 — Administration** | YOLOv8/YOLO11 object detection; ByteTrack tracking and object ID assignment for people and vehicles; login, camera configuration, alert configuration, and system settings. Fire detection is optional. |
+| **Sitota Getahun (Sitota)** | **5 — Analytics** | Intrusion detection, crowd counting, loitering detection, restricted-area monitoring, and event classification. |
+| **Nuhamin Anbese (Nuhamin)** | **6 — Alerts** | Telegram, email, and SMS alert integration, plus screenshot capture. |
+| **Bona Tolasa (Bona)** | **7 — Database** | Storage and management of detection logs, alert logs, user data, camera data, and event history. |
+| **Iman Muhammednur (Iman / Emma)** | **8 — Dashboard** | Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
 
+These are team responsibility assignments; the implementation and setup sections describe the available functionality.
 ---
 
 ## Table of Contents
