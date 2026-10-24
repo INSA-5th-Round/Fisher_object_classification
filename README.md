@@ -18,12 +18,12 @@ The graduation project responsibilities are assigned by system layer:
 
 | Team member | Assigned layer(s) | Specific responsibilities |
 | --- | --- | --- |
-| **Hawlet Musbah ** | **2 — Video Processing** | OpenCV and FFmpeg video processing, frame extraction, and video enhancement. |
-| **Natnaile Desalgn ** | **3 — AI Detection; 4 — Tracking; 9 — Administration** | YOLOv8/YOLO11 object detection; ByteTrack tracking and object ID assignment for people and vehicles; login, camera configuration, alert configuration, and system settings. Fire detection is optional. |
-| **Sitota Getahun ** | **5 — Analytics** | Intrusion detection, crowd counting, loitering detection, restricted-area monitoring, and event classification. |
-| **Nuhamin Anbese ** | **6 — Alerts** | Telegram, email, and SMS alert integration, plus screenshot capture. |
-| **Bona Tolasa** | **7 — Database** | Storage and management of detection logs, alert logs, user data, camera data, and event history. |
-| **Eman Mohammednur ** | **8 — Dashboard** | Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
+| Hawlet Musbah  | **2 — Video Processing** | OpenCV and FFmpeg video processing, frame extraction, and video enhancement. |
+| Natnaile Desalgn | **3 — AI Detection; 4 — Tracking; 9 — Administration** | YOLOv8/YOLO11 object detection; ByteTrack tracking and object ID assignment for people and vehicles; login, camera configuration, alert configuration, and system settings. Fire detection is optional. |
+| Sitota Getahun  | **5 — Analytics** | Intrusion detection, crowd counting, loitering detection, restricted-area monitoring, and event classification. |
+| Nuhamin Anbese  | **6 — Alerts** | Telegram, email, and SMS alert integration, plus screenshot capture. |
+| Bona Tolasa | **7 — Database** | Storage and management of detection logs, alert logs, user data, camera data, and event history. |
+|Eman Mohammednur   **8 — Dashboard** | Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
 
 These are team responsibility assignments; the implementation and setup sections describe the available functionality.
 ---
@@ -33,13 +33,13 @@ These are team responsibility assignments; the implementation and setup sections
 - [1. System Architecture](#1-system-architecture)
 - [2. Core Features & Capabilities](#2-core-features--capabilities)
 - [3. Project Directory Structure](#3-project-directory-structure)
-- [5. Installation & Setup](#5-installation--setup)
+- [4. Installation & Setup](#5-installation--setup)
   - [Prerequisites](#prerequisites)
   - [Python Environment Setup](#python-environment-setup)
   - [Frontend Dashboard Setup](#frontend-dashboard-setup)
   - [Environment Variables (.env)](#environment-variables-env)
-- [6. Running the System (Startup Guide)](#6-running-the-system-startup-guide)
-- [7. How to Use the Program (Operator Walkthrough)](#7-how-to-use-the-program-operator-walkthrough)
+- [5. Running the System (Startup Guide)](#6-running-the-system-startup-guide)
+- [6. How to Use the Program (Operator Walkthrough)](#7-how-to-use-the-program-operator-walkthrough)
   - [Step 1: Signing In](#step-1-signing-in)
   - [Step 2: Live CCTV Camera Monitoring](#step-2-live-cctv-camera-monitoring)
   - [Step 3: Triggering & Observing Real-Time Alerts](#step-3-triggering--observing-real-time-alerts)
@@ -48,9 +48,9 @@ These are team responsibility assignments; the implementation and setup sections
   - [Step 6: Generating & Viewing Reports with 2-Minute Video](#step-6-generating--viewing-reports-with-2-minute-video)
   - [Step 7: User Management & Security](#step-7-user-management--security)
   - [Step 8: Graceful Shutdown](#step-8-graceful-shutdown)
-- [8. Default Authorized User Credentials](#8-default-authorized-user-credentials)
-- [9. API Endpoints Reference](#9-api-endpoints-reference)
-- [10. Testing & Quality Assurance](#10-testing--quality-assurance)
+- [7. Default Authorized User Credentials](#8-default-authorized-user-credentials)
+- [8. API Endpoints Reference](#9-api-endpoints-reference)
+- [9. Testing & Quality Assurance](#10-testing--quality-assurance)
 
 ---
 
