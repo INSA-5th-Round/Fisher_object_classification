@@ -18,12 +18,12 @@ The graduation project responsibilities are assigned by system layer:
 
 | Team member | Assigned layer(s) | Specific responsibilities |
 | --- | --- | --- |
-| **Hawlet Musbah (Hawlet)** | **2 — Video Processing** | OpenCV and FFmpeg video processing, frame extraction, and video enhancement. |
-| **Natnaile Desalgn (Nati)** | **3 — AI Detection; 4 — Tracking; 9 — Administration** | YOLOv8/YOLO11 object detection; ByteTrack tracking and object ID assignment for people and vehicles; login, camera configuration, alert configuration, and system settings. Fire detection is optional. |
-| **Sitota Getahun (Sitota)** | **5 — Analytics** | Intrusion detection, crowd counting, loitering detection, restricted-area monitoring, and event classification. |
-| **Nuhamin Anbese (Nuhamin)** | **6 — Alerts** | Telegram, email, and SMS alert integration, plus screenshot capture. |
-| **Bona Tolasa (Bona)** | **7 — Database** | Storage and management of detection logs, alert logs, user data, camera data, and event history. |
-| **Iman Muhammednur (Iman / Emma)** | **8 — Dashboard** | Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
+| **Hawlet Musbah ** | **2 — Video Processing** | OpenCV and FFmpeg video processing, frame extraction, and video enhancement. |
+| **Natnaile Desalgn ** | **3 — AI Detection; 4 — Tracking; 9 — Administration** | YOLOv8/YOLO11 object detection; ByteTrack tracking and object ID assignment for people and vehicles; login, camera configuration, alert configuration, and system settings. Fire detection is optional. |
+| **Sitota Getahun ** | **5 — Analytics** | Intrusion detection, crowd counting, loitering detection, restricted-area monitoring, and event classification. |
+| **Nuhamin Anbese ** | **6 — Alerts** | Telegram, email, and SMS alert integration, plus screenshot capture. |
+| **Bona Tolasa** | **7 — Database** | Storage and management of detection logs, alert logs, user data, camera data, and event history. |
+| **Eman Mohammednur ** | **8 — Dashboard** | Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
 
 These are team responsibility assignments; the implementation and setup sections describe the available functionality.
 ---
@@ -33,7 +33,6 @@ These are team responsibility assignments; the implementation and setup sections
 - [1. System Architecture](#1-system-architecture)
 - [2. Core Features & Capabilities](#2-core-features--capabilities)
 - [3. Project Directory Structure](#3-project-directory-structure)
-- [4. Renamed Python Modules Reference](#4-renamed-python-modules-reference)
 - [5. Installation & Setup](#5-installation--setup)
   - [Prerequisites](#prerequisites)
   - [Python Environment Setup](#python-environment-setup)
@@ -238,20 +237,7 @@ ending/
 
 ---
 
-## 4. Renamed Python Modules Reference
-
-To ensure standard naming conventions, all legacy module names have been updated across imports, scripts, and documentation:
-
-| Old Module Name | New Clean Module Name | Purpose |
-| :--- | :--- | :--- |
-| `hawlet_frame.py` | [`finals/frame.py`](file:///c:/Users/Lenovo/Desktop/ending/finals/frame.py) | Frame capture, resolution normalization, and decoding |
-| `nuhamin_alert.py` | [`finals/alert_system.py`](file:///c:/Users/Lenovo/Desktop/ending/finals/alert_system.py) | Telegram notifications, 2-frame dispatch & 2-min video worker |
-| `stota_anlyz.py` | [`finals/analysis.py`](file:///c:/Users/Lenovo/Desktop/ending/finals/analysis.py) | Intrusion analytics, polygon area calculations, and tracking |
-| `nati_detector.py` | [`finals/yolo_detector.py`](file:///c:/Users/Lenovo/Desktop/ending/finals/yolo_detector.py) | Ultralytics YOLOv8 object detector and BoT-SORT tracker |
-
----
-
-## 5. Installation & Setup
+## 4. Installation & Setup
 
 ### Prerequisites
 - **Operating System**: Windows 10/11, Linux, or macOS
@@ -332,7 +318,7 @@ To protect sensitive keys, all `.env` files containing live credentials are kept
 
 ---
 
-## 6. Running the System (Startup Guide)
+## 5. Running the System (Startup Guide)
 
 To run the complete integrated platform, start the three services in three separate terminal windows:
 
@@ -372,7 +358,7 @@ python finals/frame_and_detection.py
 
 ---
 
-## 7. How to Use the Program (Operator Walkthrough)
+## 6. How to Use the Program (Operator Walkthrough)
 
 ### Step 1: Signing In
 1. Open `http://localhost:5173` in your browser.
@@ -478,7 +464,7 @@ To shut down the platform safely:
 
 ---
 
-## 8. Default Authorized User Credentials
+## 7. Default Authorized User Credentials
 
 The database is seeded with exactly three authorized user accounts. No other email addresses are permitted access:
 
@@ -490,7 +476,7 @@ The database is seeded with exactly three authorized user accounts. No other ema
 
 ---
 
-## 9. API Endpoints Reference
+## 8. API Endpoints Reference
 
 ### Authentication & Sessions
 | Method | Endpoint | Description |
@@ -537,7 +523,7 @@ The database is seeded with exactly three authorized user accounts. No other ema
 
 ---
 
-## 10. Testing & Quality Assurance
+## 9. Testing & Quality Assurance
 
 ### 1. Frontend Unit Tests (Vitest)
 Executes component tests, mock service validations, and authentication gate tests:
