@@ -18,12 +18,12 @@ The graduation project responsibilities are assigned by system layer:
 
 | Team member | Assigned layer(s) | Specific responsibilities |
 | --- | --- | --- |
-| Hawlet Musbah  | **2 — Video Processing** | OpenCV and FFmpeg video processing, frame extraction, and video enhancement. |
+| Hawlet Musbah  | **2 — Video Processing** | OpenCV video processing, frame extraction, and video enhancement. |
 | Natnaile Desalgn | **3 — AI Detection; 4 — Tracking; 9 — Administration** | YOLOv8/YOLO11 object detection; ByteTrack tracking and object ID assignment for people and vehicles; login, camera configuration, alert configuration, and system settings. Fire detection is optional. |
 | Sitota Getahun  | **5 — Analytics** | Intrusion detection, crowd counting, loitering detection, restricted-area monitoring, and event classification. |
 | Nuhamin Anbese  | **6 — Alerts** | Telegram, email, and SMS alert integration, plus screenshot capture. |
 | Bona Tolasa | **7 — Database** | Storage and management of detection logs, alert logs, user data, camera data, and event history. |
-|Eman Mohammednur   **8 — Dashboard** | Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
+|Eman Mohammednur  | **8 — Dashboard**  Live CCTV feed, detection results, statistics, reports, and user management interfaces. |
 
 These are team responsibility assignments; the implementation and setup sections describe the available functionality.
 ---
